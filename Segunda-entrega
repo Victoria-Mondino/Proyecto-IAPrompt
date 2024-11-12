@@ -1,1 +1,58 @@
+Curso: IA Generación de Prompts
 
+Comisión: 71985
+Estudiante: Mondino Victoria
+
+
+Proyecto: Asistente de Salud Asistido por IA para Diagnóstico Inicial
+
+PRESENTACIÓN DEL PROBLEMA
+Muchas personas enfrentan dificultades para acceder a atención médica oportuna debido a diversas barreras, como la falta de tiempo, recursos económicos limitados, o la lejanía de centros de salud. Esta situación se vuelve aún más crítica cuando surgen síntomas que podrían ser indicativos de problemas de salud importantes y requieren atención inmediata. Por ejemplo, una persona puede experimentar dolor de cabeza constante, fiebre, o molestias abdominales, y no saber si debe consultar a un médico de inmediato o si puede tratarse con medidas en casa. Esta incertidumbre puede generar ansiedad, retraso en la atención y potencial empeoramiento de la condición.
+
+Además, en situaciones de emergencia o cuando los síntomas son vagos, puede ser difícil para una persona sin formación médica evaluar la gravedad de su situación. La falta de acceso a una evaluación inicial de salud también afecta a personas en áreas rurales, a adultos mayores con movilidad reducida y a quienes tienen limitaciones para obtener información confiable en línea. Esto plantea un problema de salud pública, ya que puede llevar a diagnósticos tardíos, a una sobrecarga de los sistemas de salud, o a la automedicación sin control.
+
+PROPUESTA DE SOLUCIÓN
+El proyecto propone el desarrollo de un asistente virtual de salud, asistido por IA, que pueda ofrecer una evaluación inicial a partir de la descripción de síntomas proporcionada por el usuario. Este asistente estará diseñado para proporcionar orientación básica, no para reemplazar una consulta médica profesional. Su rol será ayudar a los usuarios a determinar si sus síntomas podrían requerir atención médica urgente, un control con un profesional, o si podrían ser manejados en casa.
+
+La IA utilizará modelos de procesamiento de lenguaje natural para interpretar descripciones de síntomas y consultas de salud. El asistente ofrecerá una lista de posibles causas, consejos de manejo preliminar, y orientación sobre cuándo buscar atención médica. Además, el asistente podrá proporcionar recomendaciones de auto-cuidado, como la hidratación o el descanso, y alertas sobre signos de advertencia que ameriten atención médica urgente. También podría emplear modelos de generación de imágenes para mostrar diagramas del cuerpo o ilustraciones de condiciones comunes, ayudando a los usuarios a identificar mejor los síntomas y zonas afectadas.
+
+Para el desarrollo del asistente, se utilizarán modelos de lenguaje como ChatGPT para la interacción textual, y herramientas de generación de imágenes como DALL-E para ilustraciones de referencia. A través de interacciones iterativas de prompting, el asistente podrá mantener un diálogo fluido, proporcionando respuestas específicas y adaptándose a la retroalimentación del usuario. En un futuro, el asistente podría mejorar su precisión mediante entrenamiento con datos de salud autorizados y la incorporación de bases de conocimiento médicas.
+
+PROMPTS
+Evaluación Inicial de Síntomas
+
+Prompt: “Proporciona una lista de posibles causas para [síntoma] y consejos de manejo inicial.”
+
+Ejemplo de uso: Prompt: “Asistente, proporciona posibles causas para un dolor de cabeza constante y sugerencias sobre qué hacer.”
+
+Resultado esperado: Descripción de posibles causas comunes de dolor de cabeza, como estrés, deshidratación o falta de sueño, junto con consejos iniciales, como descansar, mantenerse hidratado, y recomendaciones de cuándo es necesario consultar a un médico.
+
+Generación de Imagen de Zonas del Cuerpo
+
+Prompt: “Muestra una ilustración del sistema respiratorio para entender mejor el dolor en el pecho.”
+
+Resultado esperado: Imagen de referencia del sistema respiratorio que puede ayudar al usuario a identificar la localización de síntomas y comprender mejor su relación con posibles problemas respiratorios o cardíacos.
+Guía para Determinar la Necesidad de Atención Médica
+
+Prompt: “Asistente, indica cuándo un usuario debería buscar atención médica para el síntoma [síntoma].”
+
+Ejemplo de uso: Prompt: “Asistente, ¿cuándo debería buscar atención médica si tengo fiebre alta?”
+
+Resultado esperado: Guía que detalle signos de alarma, como fiebre persistente, dificultad para respirar o dolor severo, y recomendaciones claras sobre cuándo es necesario acudir a un centro de salud.
+
+Retroalimentación de Seguimiento
+
+Prompt: “Proporciona una lista de preguntas de seguimiento para evaluar la evolución de [síntoma].”
+
+Ejemplo de uso: Prompt: “Asistente, proporciona preguntas de seguimiento para alguien que tiene tos.”
+
+Resultado esperado: Lista de preguntas que puedan ayudar a identificar si la tos ha mejorado, si ha cambiado de características, o si se han desarrollado otros síntomas.
+
+JUSTIFICACIÓN DE VIABILIDAD
+Recursos: La tecnología actual de IA permite la implementación de un asistente de salud confiable para diagnósticos iniciales. Sin embargo, para que el asistente sea capaz de proporcionar recomendaciones detalladas y específicas, será necesario mejorar el entrenamiento con datos de salud autorizados y manuales de diagnóstico inicial. Esto podría incluir colaboraciones con profesionales de salud para garantizar precisión y ética en la información proporcionada.
+
+Accesibilidad: Este asistente estará disponible en cualquier dispositivo con conexión a internet, proporcionando acceso rápido y sencillo a una evaluación preliminar de síntomas para cualquier persona con un teléfono inteligente o computadora.
+
+Escalabilidad: La herramienta puede escalarse en el tiempo mediante la integración de nuevas fuentes de conocimiento y la actualización continua de los modelos de IA. A medida que los usuarios interactúen con el asistente y proporcionen retroalimentación, el asistente podrá mejorar la calidad de sus respuestas. Además, la recopilación de datos anónimos de síntomas y consultas frecuentes permitirá identificar patrones y mejorar el servicio para ofrecer un soporte más personalizado y adaptado a las necesidades de la población.
+
+Este proyecto tiene el potencial de aliviar la presión sobre los sistemas de salud, aliviando la carga de consultas leves o no urgentes y mejorando el acceso a la orientación médica para todos.
