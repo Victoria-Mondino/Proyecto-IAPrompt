@@ -56,3 +56,70 @@ Accesibilidad: Este asistente estará disponible en cualquier dispositivo con co
 Escalabilidad: La herramienta puede escalarse en el tiempo mediante la integración de nuevas fuentes de conocimiento y la actualización continua de los modelos de IA. A medida que los usuarios interactúen con el asistente y proporcionen retroalimentación, el asistente podrá mejorar la calidad de sus respuestas. Además, la recopilación de datos anónimos de síntomas y consultas frecuentes permitirá identificar patrones y mejorar el servicio para ofrecer un soporte más personalizado y adaptado a las necesidades de la población.
 
 Este proyecto tiene el potencial de aliviar la presión sobre los sistemas de salud, aliviando la carga de consultas leves o no urgentes y mejorando el acceso a la orientación médica para todos.
+!pip install openai==0.28
+
+# Asegúrate de que la instalación se haya realizado correctamente
+Requirement already satisfied: openai==0.28 in /usr/local/lib/python3.10/dist-packages (0.28.0)
+Requirement already satisfied: requests>=2.20 in /usr/local/lib/python3.10/dist-packages (from openai==0.28) (2.32.3)
+Requirement already satisfied: tqdm in /usr/local/lib/python3.10/dist-packages (from openai==0.28) (4.66.5)
+Requirement already satisfied: aiohttp in /usr/local/lib/python3.10/dist-packages (from openai==0.28) (3.10.1)
+
+import openai
+
+# Coloca tu clave de API (aquí es un ejemplo, usa tu clave real si la tienes)
+openai.api_key = "sk-fakeAPIKey1234567890abcdef"
+
+# Contexto para el asistente IA en salud
+context = 'Serás un asistente especializado en diagnóstico médico inicial. Tu objetivo es ayudar a los usuarios proporcionando una posible interpretación de sus síntomas y sugerirles que consulten con un profesional médico para obtener un diagnóstico definitivo. También generarás recomendaciones generales basadas en los síntomas que proporcionen los usuarios, pero siempre enfatizando que no se trata de un diagnóstico profesional.'
+
+# Prompt (entrada del usuario)
+prompt = "Asistente, tengo dolor de cabeza, fiebre y tos, ¿qué podría ser?"
+
+# Realizar la solicitud a la API de OpenAI
+conversation = [
+    {"role": "system", "content": context},
+    {"role": "user", "content": prompt}
+]
+
+response = openai.ChatCompletion.create(
+    model='gpt-3.5-turbo',
+    messages=conversation,
+    max_tokens=500,
+)
+
+# Obtener la respuesta
+message = response.choices[0]['message']
+print("{}: {}".format(message['role'], message['content']))
+
+# Almacenar la respuesta en una variable para usarla más adelante
+health_advice = response['choices'][0]['message']['content'].strip()
+
+# Usar la variable para el siguiente paso
+print("Respuesta:", health_advice)
+
+# Crear un nuevo prompt para generar un escenario visual (por ejemplo, el estado de una persona enferma)
+process_text_to_image = f"En base a la respuesta anterior, crea un escenario visual de una persona mostrando signos de {health_advice}"
+
+# Agregar el nuevo mensaje de usuario con el consejo de salud como contexto
+conversation.append({"role": "user", "content": process_text_to_image})
+
+# Hacer la solicitud para el nuevo prompt (esto generará una imagen falsa del escenario basado en el diagnóstico)
+response = openai.ChatCompletion.create(
+    model='gpt-3.5-turbo',
+    messages=conversation,
+    max_tokens=500
+)
+
+# Obtener y mostrar el nuevo prompt para la imagen
+img_prompt = response['choices'][0]['message']['content'].strip()
+print("Prompt para imagen:", img_prompt)
+
+# Generar la imagen (esto es solo un ejemplo, puedes generar una imagen con OpenAI en una plataforma que permita la creación de imágenes)
+image_response = openai.Image.create(
+    prompt=img_prompt,
+    n=1,
+    size="1024x1024"
+)
+
+# Obtener y mostrar la URL de la imagen generada
+print(image_response['data'][0]['url'])
